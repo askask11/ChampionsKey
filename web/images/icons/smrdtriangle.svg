@@ -1,0 +1,17 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg10" height="16" width="16" version="1.0" preserveAspectRatio="xMidYMid meet" viewBox="0 0 343 302" style="font-size: 16px; color: rgb(216, 31, 6);">
+    <metadata id="metadata14" style="fill: rgb(216, 31, 6);">
+        <rdf:rdf style="fill: rgb(216, 31, 6);">
+            <cc:work rdf:about="" style="fill: rgb(216, 31, 6);">
+                <dc:format style="fill: rgb(216, 31, 6);">image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" style="fill: rgb(216, 31, 6);"></dc:type>
+            </cc:work>
+        </rdf:rdf>
+    </metadata>
+    <defs id="defs6" style="fill: rgb(216, 31, 6);">
+        <clipPath id="clipEmfPath1" clipPathUnits="userSpaceOnUse" style="fill: rgb(216, 31, 6);">
+            <path id="path2" d="M 0.32064761,-0.32064761 L 344.05488,-0.32064761 L 344.05488,302.05005 L 0.32064761,302.05005 z" style="fill: rgb(216, 31, 6);"></path>
+        </clipPath>
+        <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern" style="fill: rgb(216, 31, 6);"></pattern>
+    </defs>
+    <path id="path8" d="  M 173.14971,0.24048571   C 178.72096,0.24048571 184.29221,4.1684189 188.58087,12.024285   L 197.59909,28.697961   C 209.66345,52.345722 237.84036,113.91006 261.00715,154.07118   C 284.13386,194.23229 323.45327,249.78449 336.4395,269.7448   L 338.88444,273.71281   C 343.65407,281.5286 344.17513,288.50269 341.08889,293.3124   C 341.08889,293.47272 341.00873,293.59297 340.92857,293.71321   C 338.16298,298.563 331.95044,301.40875 323.01238,301.16827   L 304.05409,300.64721   C 277.5205,299.28446 210.10435,292.91159 163.73068,292.83143   C 117.35702,292.79135 49.540055,299.00389 25.772051,300.28648   L 21.08258,300.40673   C 11.904042,300.64721 5.6514141,297.64114 3.0060713,292.55086   C 2.8858285,292.4707 2.8056666,292.31038 2.7255047,292.19013   C -0.040080951,287.38042 0.56113331,280.56666 5.2506046,272.95128   L 15.150599,256.83873   C 29.619823,234.55373 68.859074,179.36226 92.106025,139.2813   C 115.35298,99.160273 143.85053,37.355446 154.63231,16.152623   L 156.87684,12.024285   C 161.24567,3.9680141 166.97724,0.040080951 172.70882,0.32064761   C 172.86914,0.28056666 172.98938,0.24048571 173.14971,0.24048571   z " clip-path="url(#clipEmfPath1)" style="fill: rgb(216, 31, 6); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+</svg>

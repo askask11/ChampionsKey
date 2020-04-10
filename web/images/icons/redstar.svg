@@ -1,0 +1,14 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg7" height="16" width="16" version="1.0" preserveAspectRatio="xMidYMid meet" viewBox="0 0 343 343" style="font-size: 16px; color: rgb(216, 31, 6);">
+  <metadata id="metadata11" style="fill: rgb(216, 31, 6);">
+    <rdf:rdf style="fill: rgb(216, 31, 6);">
+      <cc:work rdf:about="" style="fill: rgb(216, 31, 6);">
+        <dc:format style="fill: rgb(216, 31, 6);">image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" style="fill: rgb(216, 31, 6);"></dc:type>
+      </cc:work>
+    </rdf:rdf>
+  </metadata>
+  <defs id="defs3" style="fill: rgb(216, 31, 6);">
+    <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern" style="fill: rgb(216, 31, 6);"></pattern>
+  </defs>
+  <path id="path5" d="  M 0.080161902,130.70398   L 130.70398,130.70398   L 171.0655,0.080161902   L 211.4671,130.70398   L 342.05084,130.70398   L 236.39745,211.4671   L 276.75897,342.05084   L 171.0655,261.3278   L 65.412112,342.05084   L 105.77363,211.4671   z " style="fill: rgb(216, 31, 6); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+</svg>

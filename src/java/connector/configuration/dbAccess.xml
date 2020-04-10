@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Editor: Johnson Gao 
+Date This File Created: 2020-3-12 17:49:22
+Description Of This Class:This is a configuration file to direct the server to access database.
+-->
+
+
+<dbAccess>
+    <!--IP:PORT-->
+    <address>
+        74.208.31.251:3306
+    </address>
+    <dbName>
+        championskey
+    </dbName>
+    <username>
+        Main
+    </username>
+    <password>
+        45465445AA
+    </password>
+    <useSSL>
+        true
+    </useSSL>
+</dbAccess>

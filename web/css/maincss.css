@@ -1,0 +1,326 @@
+/*Editor: Johnson Gao 
+Date This File Created: 2020-3-6 13:20:07
+Description Of This Class:
+*/
+/* 
+    Created on : 2020-3-6, 13:20:07
+    Author     : Jianqing Gao
+*/
+
+/*Functional CSS importing*/
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");/*Import BS*/
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Overlock&display=swap');/*Import Google Font*/
+@import url('arrowButtonCss.css');/*import arrow button*/
+@import url('animatedField.css');/*import animated field*/
+@import url("popup-nojs.css");/*no js popup class*/
+
+
+/*Basic Config*/
+#index-body
+{
+    background-image: url("../images/alarm-pink.jpeg");
+     background-size: 100%;
+       color: #333333; 
+    background-color: #ccffff; 
+    /*background-image: url("images/dark-wood.jpg");*/ 
+    background-position: center; 
+    /*font-family: Georgia, times, serif;*/ 
+    line-height: 1.4em; 
+    margin: 0px;
+}
+
+#userhome-body
+{
+    background-image: url("../images/animated-pattern.gif");
+    background-size: 100%;
+}
+
+#password-recovery-body
+{
+    background-color: #ccffcc;
+}
+
+
+body
+{
+   
+    font-family: 'Overlock', cursive;
+}
+
+
+h1, h4
+{
+    font-family: 'Cabin Sketch', cursive;
+}
+
+.nav-lightblue-bg
+{
+    background-color: #ccffff;
+    color: #0033ff;
+}
+
+.navbar
+{
+    font-size: 17px;
+}
+
+.padding2
+{
+    padding: 2%;
+}
+
+
+
+/*Add-on classes on config*/
+.index-center-container
+{
+    margin-left: 23%;
+    margin-right: 23%;
+    margin-top:9%;
+    padding: 2%;
+    font-size: 15px;
+}
+
+.half-opaque
+{
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+.transparent-white
+{
+    background-color: rgba(245, 245, 245, 0);
+}
+
+.opacity-08
+{
+    background-color: rgba(245, 245, 245, 0.8);
+}
+
+.navbar .active a
+{
+    background-color: #3399ff !important;
+    color:#ffffcc !important;
+}
+
+.navbar a:hover
+{
+    background-color: #33ccff !important;
+    /*color: #ffffcc !important;*/
+}
+
+.navbar .active a:hover
+{
+    color:#ffff33 !important;
+}
+
+.user-home-iframe,.manage-students-iframe
+{
+    width: 100%;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: #3399ff;
+    height:500px;
+}
+
+.manage-students-iframe
+{
+    height: 900px;
+}
+
+.edit-student-iframe
+{
+    border: none;
+    width: 400px;
+    height: 250px;
+}
+
+
+
+.signin-iframe
+{
+    width: 100%;
+    height:340px;
+}
+
+.help-title, .help-cursor
+{    
+    cursor: help;
+}
+
+.help-underline,.help-title
+{
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+}
+
+/*Functional Classes*/
+
+
+/*IDs*/
+#sign-in-welcome-title
+{ font-size: 42px;}
+#mainInputID
+{
+    width: 34%;
+}
+
+#sign-in-bytext
+{
+    font-size: 17px;
+}
+#userSettingPopupChild
+{
+    width: 350px;
+}
+#user-profile-iframe
+{
+    height: 500px;
+}
+
+/*Display Config Classes
+*/
+
+.inline-block
+{
+    display: inline-block;
+}
+
+/*Priority classes*/
+.icon-16
+{
+    width: 16px;
+    height: 16px;
+    
+}
+
+.margin-bottom-9
+{
+    margin-bottom: 9px;
+}
+
+.margin-bottom-6
+{
+    margin-bottom: 6px;
+}
+
+
+.icon-32
+{
+    width:32px;
+    height: 32px;
+    /*margin-bottom: 2px;*/
+}
+.transparentButton
+{
+    background: none;
+    border:none;
+    
+}
+
+.transparent-txtinput
+{
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    color: #000000;
+}
+
+.table-striped-nth-even-bluebg>tbody>tr:nth-of-type(even) ,#student-in-period-table thead
+{
+    background-color: rgb(187, 225, 255);
+}
+
+/*#student-in-period-table
+{
+    border-width: 4px;
+    border-style: dotted;
+    border-color: #0000ff;
+}*/
+.right
+{
+    float: right;
+}
+
+.center-text
+{
+    text-align: center;
+}
+
+.centralized
+{
+    margin: auto;
+}
+
+.block
+{
+    display: block;
+}
+
+.width-80
+{
+    width: 80%;
+}
+
+.height100
+{
+    height:100%;
+}
+
+.min-height100
+{
+    min-height: 100%;
+}
+.full-width
+{
+    width:100%;
+}
+
+.white
+{
+    color:white;
+}
+
+.bluebg
+{
+    background-color: #0000ff;
+}
+.green
+{
+    color:green;
+}
+
+.blue
+{
+    color:blue;
+}
+.red
+{
+    color:red;
+}
+
+.whiteBg
+{
+    background-color: white;
+}
+
+.hide
+{
+    animation: fadeEffect 0.3s;
+    display:none;
+}
+
+
+
+/*declears an "object" for animation
+For this effect, it should take 1 sec.*/
+@keyframes fadeEffect
+{
+    from
+    {
+        //initial state : opacity: 0;
+        opacity: 0;
+    }to
+    {
+        opacity: 1;//ending state: opacity: 1;
+    }
+}

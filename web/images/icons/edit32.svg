@@ -1,0 +1,16 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg11" height="32" width="32" version="1.0" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 17" style="font-size: 32px; color: rgb(19, 34, 122);">
+  <metadata id="metadata15" style="fill: rgb(19, 34, 122);">
+    <rdf:rdf style="fill: rgb(19, 34, 122);">
+      <cc:work rdf:about="" style="fill: rgb(19, 34, 122);">
+        <dc:format style="fill: rgb(19, 34, 122);">image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" style="fill: rgb(19, 34, 122);"></dc:type>
+      </cc:work>
+    </rdf:rdf>
+  </metadata>
+  <defs id="defs3" style="fill: rgb(19, 34, 122);">
+    <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern" style="fill: rgb(19, 34, 122);"></pattern>
+  </defs>
+  <path id="path5" d="  M 11.759389,14.23926   C 11.759389,14.519246 11.519402,14.759233 11.199418,14.759233   C 2.3598774,14.759233 2.3598774,14.759233 2.3598774,14.759233   C 2.039894,14.759233 1.7599086,14.519246 1.7599086,14.23926   C 1.7599086,5.4797154 1.7599086,5.4797154 1.7599086,5.4797154   C 1.7599086,5.159732 2.039894,4.8797465 2.3598774,4.8797465   C 10.039479,4.8797465 10.039479,4.8797465 10.039479,4.8797465   C 11.639395,3.2798296 11.639395,3.2798296 11.639395,3.2798296   C 11.519402,3.2798296 11.319412,3.2798296 11.199418,3.2798296   C 2.3598774,3.2798296 2.3598774,3.2798296 2.3598774,3.2798296   C 1.1199418,3.2798296 0.079995845,4.2397798 0.079995845,5.4797154   C 0.079995845,14.23926 0.079995845,14.23926 0.079995845,14.23926   C 0.079995845,15.3992 1.1199418,16.399148 2.3598774,16.399148   C 11.199418,16.399148 11.199418,16.399148 11.199418,16.399148   C 12.399356,16.399148 13.359306,15.3992 13.359306,14.23926   C 13.359306,9.3595139 13.359306,9.3595139 13.359306,9.3595139   C 11.759389,10.999429 11.759389,10.999429 11.759389,10.999429   L 11.759389,14.23926   z " style="fill: rgb(19, 34, 122); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+  <path id="path7" d="  M 16.239157,4.8397486   L 13.919277,2.4798712   L 6.719651,9.7194952   L 5.5197133,13.199314   L 9.2395201,12.039375   L 16.239157,4.8397486  z    M 8.3995637,10.039479   L 8.0395824,9.7194952   L 13.919277,3.6798089   L 14.23926,4.1597839   L 8.3995637,10.039479  z   " style="fill: rgb(19, 34, 122); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+  <path id="path9" d="  M 14.63924,1.5999169   L 16.999117,4.0797881   L 18.639032,2.4398733   L 16.159161,0.079995845   L 14.63924,1.5999169   z " style="fill: rgb(19, 34, 122); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+</svg>
