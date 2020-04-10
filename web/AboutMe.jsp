@@ -2,9 +2,8 @@
     Document   : AboutMe
     Created on : 2020-4-9, 18:01:24
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a page where "redirects" user to Johnson's blog.
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class='height100'>

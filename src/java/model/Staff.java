@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-11 12:23:08
- * Description Of This Class:
+ * Description Of This Class: This is a class for staff.
  */
 package model;
 
@@ -13,6 +13,14 @@ public class Staff
     private String email,username,password,legalName;
     private int id;
 
+    /**
+     * Creates an instance of a staff.
+     * @param email
+     * @param username
+     * @param password
+     * @param legalName
+     * @param id 
+     */
     public Staff(String email, String username, String password, String legalName, int id)
     {
         this.email = email;
@@ -21,7 +29,22 @@ public class Staff
         this.legalName = legalName;
         this.id = id;
     }
+    
+    /**
+     * Creates an empty instance of staff.
+     */
+    public Staff()
+    {
+        this.email = "";
+        this.username = "";
+        this.password = "";
+        this.legalName = "";
+        this.id = -1;
+    }
 
+    //SET AND GET METHODS//
+    
+    
     public String getEmail()
     {
         return email;
@@ -72,13 +95,25 @@ public class Staff
         this.id = id;
     }
 
+    /**
+     * {@inheritDoc }
+     * @return 
+     */
     @Override
     public String toString()
     {
         return "Staff{" + "email=" + email + ", username=" + username + ", password=" + password + ", legalName=" + legalName + ", id=" + id + '}';
     }
     
-    
+    /**
+     * Test main method.
+     * @param args 
+     */
+    public static void main(String[] args)
+    {
+        System.out.println(new Staff());
+        System.out.println(new Staff("932646988@qq.com","askask11","password", "Jianqing Gao", 1234567));
+    }
     
     
 }

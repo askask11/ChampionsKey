@@ -2,7 +2,7 @@
     Document   : ManagePeriods
     Created on : 2020-3-19, 21:40:03
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a page where user can manage the periods.
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

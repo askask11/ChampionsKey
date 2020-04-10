@@ -10,15 +10,19 @@ Description Of This Class:This is a configuration file to direct the server to a
     <address>
         74.208.31.251:3306
     </address>
+    <!--The name of the database.-->
     <dbName>
         championskey
     </dbName>
+    <!--The username of the database.-->
     <username>
         Main
     </username>
+    <!--Password to access the database.-->
     <password>
         45465445AA
     </password>
+    <!--If the connection uses ssl.-->
     <useSSL>
         true
     </useSSL>

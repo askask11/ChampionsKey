@@ -56,12 +56,23 @@ public class ServletPostProcessor implements ServletProcessor
     private String userPath;
     private HttpServlet servlet;
 
+    /**
+     * Initalizing method.
+     * @param request
+     * @param response
+     * @param servlet 
+     */
     public ServletPostProcessor(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet)
     {
         //super(request, response);
         init(request, response, servlet);
     }
 
+    /**
+     * {@inheritDoc }
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     public void process() throws ServletException, IOException
     {
@@ -651,8 +662,14 @@ public class ServletPostProcessor implements ServletProcessor
         //psb results 1.success 2. already signin 3. student not found 4. found student, not in this period.
     }
 
+    /**
+     * A form about period is submitted.
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void processManagePeriodsPOST() throws ServletException, IOException
     {
+        //declear attributes and set up params.
         String action = request.getParameter("action");
         // String param;
         String idString;
@@ -1244,6 +1261,12 @@ public class ServletPostProcessor implements ServletProcessor
 
     }
 
+    /**
+     * User login method,
+     * @throws SQLException
+     * @throws IOException
+     * @throws ServletException 
+     */
     public void processUserhomePOST() throws SQLException, IOException, ServletException
     {
         String email, password;
@@ -1290,6 +1313,7 @@ public class ServletPostProcessor implements ServletProcessor
                     }
                 }
 
+                //Set attribute back
                 session.setAttribute("activeAttandanceID", activeAttandanceID);
                 session.setAttribute("loginMessage", loginMessage);
                 session.setAttribute("currentStudyHallStatusInfo", currentStudyHallStatusInfo);
@@ -1368,7 +1392,13 @@ public class ServletPostProcessor implements ServletProcessor
     {
         request.getRequestDispatcher(path + ".jsp").forward(request, response);
     }
-
+/**
+ * default security page.
+ * @param request
+ * @param response
+ * @throws ServletException
+ * @throws IOException 
+ */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {

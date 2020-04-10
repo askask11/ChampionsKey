@@ -4,10 +4,9 @@ package util;
  * Date This Project Created: Jan 28 2020
  * Description Of This Class: This class enables the app to generate numbers.
  */
-
-
 /**
  * Generating random numbers.
+ *
  * @author Johnson Gao
  */
 public class Randomizer
@@ -58,12 +57,13 @@ public class Randomizer
      * <br>If the upperbound is greater than 9, the returned number may be
      * longer than expected. Therefore the lowerbound and upperbound must be
      * within 0-9;
+     *
      * @param lowerBound Lowerbound of the new number.
      * @param upperBound Upperbound
      * @param length The length.
      * @return A sequence of random number.
-     * @throws IllegalArgumentException If the lowerbound or upperbound is 
-     * not within 0-9;
+     * @throws IllegalArgumentException If the lowerbound or upperbound is not
+     * within 0-9;
      */
     public static String randomStringId(int lowerBound, int upperBound, int length)
     {
@@ -98,6 +98,7 @@ public class Randomizer
 
     /**
      * Produce a group of random numbers and letters.
+     *
      * @param length The length of the new string identical number sequence.
      * @param isCaseRandom If randomize the case of the chars given.
      * @param letters A set of chars that can be in the random set.
@@ -133,38 +134,53 @@ public class Randomizer
         }
         return id;
     }
+
+    /**
+     * Generate a random letter within given a char array.
+     *
+     * @param letters
+     * @return
+     */
     public static char randomLetter(char[] letters)
     {
         return letters[randomInt(0, letters.length - 1)];
     }
-    
-    public static String randomLetters(char[] letters,int length)
+
+    /**
+     * Genetate given length of letters.
+     *
+     * @param letters
+     * @param length
+     * @return
+     */
+    public static String randomLetters(char[] letters, int length)
     {
-        String letter="";
-        if(length<0)
+        String letter = "";
+        if (length < 0)
         {
-            throw new IllegalArgumentException("length cannot be negative. For length= " + length );
+            throw new IllegalArgumentException("length cannot be negative. For length= " + length);
         }
-        
+
         for (int i = 0; i < length; i++)
         {
             letter += randomLetter(letters);
         }
         return letter;
     }
-    
+
     /**
      * Check the range of the length.
+     *
      * @param length The length of the number.
      */
     private static void lengthRangeCheck(int length)
     {
-        if(length <= 0)
+        if (length <= 0)
         {
-            throw new IllegalArgumentException("Length given = "+ length +" must be greater than 0!" );
+            throw new IllegalArgumentException("Length given = " + length + " must be greater than 0!");
         }
     }
-    
+
     public static String generateBash()
     {
         String bash = Randomizer.randomLetterNumber(60, true, "QWERTYUIOPASDFGHJKLZXCVBNM".toCharArray());
@@ -173,6 +189,7 @@ public class Randomizer
 
     /**
      * Test main method.
+     *
      * @param args Lines command argument.
      */
     public static void main(String[] args)

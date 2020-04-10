@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-13 13:04:00
- * Description Of This Class:
+ * Description Of This Class: This is a class for most of the study hall managing methods to database.
  */
 package connector.database;
 
@@ -25,14 +25,21 @@ import model.Student;
 import org.xml.sax.SAXException;
 
 /**
- *
+ *This is a class for most of the study hall managing methods to database.
  * @author Jianqing Gao
  */
 public class StudyhallManagement
 {
 
+    /**
+     * The connection object received from the main class.
+     */
     private Connection dbConn;
 
+    /**
+     * Creates an instance of this class using the connection object given.
+     * @param dbConn 
+     */
     public StudyhallManagement(Connection dbConn)
     {
         this.dbConn = dbConn;
@@ -52,9 +59,10 @@ public class StudyhallManagement
     ///////////////ACTIVE SESSION TABLE/////////////////////
     ///////////////////////////////////////////
     /**
-     *
+     * Select the active session of a teacher by the id of the teacher.
      * @param teacherID
-     * @return
+     * @return <code>-1</code> if the teacher currently doesn't have a hall. 
+     * Otherwise returns with the session id.
      * @throws SQLException
      */
     public int selectFromActiveSessionById(int teacherID) throws SQLException
@@ -73,6 +81,14 @@ public class StudyhallManagement
         }
     }
 
+    /**
+     * Register an active session to a staff. This will put the staff
+     * account to active.
+     * @param sessionID The session id.
+     * @param teacherID
+     * @return Rows affected for SQL statement.
+     * @throws SQLException 
+     */
     public int insertIntoActiveSession(int sessionID, int teacherID) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("INSERT INTO activeSessions VALUES(?,?)");
@@ -81,6 +97,13 @@ public class StudyhallManagement
         return ps.executeUpdate();
     }
 
+    /**
+     * Unregister a session from staff account.
+     * @param sessionID
+     * @param teacherID
+     * @return
+     * @throws SQLException 
+     */
     public int deleteFromActiveSession(int sessionID, int teacherID) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("DELETE FROM activeSessions WHERE attandanceID=? AND teacherID=?");
@@ -105,6 +128,7 @@ public class StudyhallManagement
         rs = ps.executeQuery();
         if (rs.next())
         {
+            //set the attendance id of the result set.
             data.setAttandanceID(attandanceID);
             data.setTeacherID(rs.getInt(2));
             data.setPeriodID(rs.getInt(3));
@@ -116,11 +140,19 @@ public class StudyhallManagement
             return data;
         } else
         {
+            //no associated record, return with a null.
             return null;
         }
 
     }
 
+    /**
+     * Insert an record into attendance register. This means a new class
+     *  is being created.
+     * @param attandance The information of the class to be registered.
+     * @return The rows affected.
+     * @throws SQLException 
+     */
     public int insertIntoAttandanceRegister(Attandance attandance) throws SQLException
     {
         String sql = "INSERT INTO attandanceRegister VALUES(?,?,?,?,?)";
@@ -133,6 +165,12 @@ public class StudyhallManagement
         return ps.executeUpdate();
     }
 
+    /**
+     * Select classes hosted by a teacher.
+     * @param teacherID The staff of a staff.
+     * @return The list of attendance.
+     * @throws SQLException 
+     */
     public ArrayList<Attandance> selectFromAttandancesByTeacherID(int teacherID) throws SQLException
     {
         String sql = "SELECT * FROM attandanceRegister WHERE teacherID=? ORDER BY date DESC";
@@ -143,6 +181,7 @@ public class StudyhallManagement
         ps.setInt(1, teacherID);
         rs = ps.executeQuery();
 
+        //go thr the list
         while (rs.next())
         {
             row = new Attandance();
@@ -183,6 +222,17 @@ public class StudyhallManagement
         return ps.executeBatch();
     }
 
+    /**
+     * Insert a record into the attendance history.
+     * @param attendanceID
+     * @param studentID
+     * @param attendanceCode
+     * @param locationCode
+     * @param timeZone
+     * @param description
+     * @return
+     * @throws SQLException 
+     */
     public int insertIntoAttendanceHistory(int attendanceID, int studentID, int attendanceCode, int locationCode, ZoneId timeZone, String description) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("INSERT INTO attandanceHistory VALUES(?,?,?,?,?,?)");
@@ -195,7 +245,12 @@ public class StudyhallManagement
         ps.setString(6, description);
         return ps.executeUpdate();
     }
-
+/**
+ * Select a group of attendance history records by the attendance id.
+ * @param attandanceID
+ * @return A group of attendances history.
+ * @throws SQLException 
+ */
     public ArrayList<AttandanceHistory> selectFromAttandanceHistoryByAttId(int attandanceID) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("SELECT * FROM attandanceHistory WHERE attendanceID=?");
@@ -203,6 +258,12 @@ public class StudyhallManagement
         return readAttHistoryFromResultSet(ps.executeQuery());
     }
 
+    /**
+     * Read the attendance history(class object) from the result set.
+     * @param rs The result set object to be read.
+     * @return The readed list of attendance history.
+     * @throws SQLException 
+     */
     private ArrayList<AttandanceHistory> readAttHistoryFromResultSet(ResultSet rs) throws SQLException
     {
         ArrayList<AttandanceHistory> data = new ArrayList<>();
@@ -466,6 +527,13 @@ public class StudyhallManagement
         return students;
     }
 
+    /**
+     * Delect a student from a period by the id of the period.
+     * @param studentId
+     * @param periodId
+     * @return
+     * @throws SQLException 
+     */
     public int deleteStudentIdFromPeriodsByPeriodId(int studentId, int periodId) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("DELETE FROM studentsInPeriod WHERE studentID=? AND periodID=?");
@@ -491,6 +559,13 @@ public class StudyhallManagement
         }
     }
 
+    /**
+     * Determines if the student is enrolled in a period.
+     * @param studentID The id of the student.
+     * @param periodID The id of the period.
+     * @return true if the student is found in the period. false otherwise.
+     * @throws SQLException 
+     */
     public boolean isThisStudentInThisPeriodById(int studentID, int periodID) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("SELECT * FROM studentsInPeriod WHERE periodID=? AND studentID=?");

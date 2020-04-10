@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-18 15:01:56
- * Description Of This Class:
+ * Description Of This Class: This is a database class specfically to manage students.
  */
 package connector.database;
 
@@ -95,6 +95,13 @@ public class StudentManagement
         return ps.executeUpdate();
     }
 
+    /**
+     * This can update the id of a student by its old id.
+     * @param oldId The previous id of the student.
+     * @param newId The current id of the student.
+     * @return Rows affected.
+     * @throws SQLException 
+     */
     public int updateStudentsIdById(int oldId, int newId) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("UPDATE students SET id=? WHERE id=?");
@@ -103,6 +110,12 @@ public class StudentManagement
         return ps.executeUpdate();
     }
 
+    /**
+     * Delete a student from database by its id.
+     * @param id The id of the student to be deleted.
+     * @return Rows affected.
+     * @throws SQLException 
+     */
     public int deleteFromStudentsById(int id) throws SQLException
     {
         PreparedStatement ps = dbConn.prepareStatement("DELETE FROM students WHERE id=?");
@@ -126,6 +139,12 @@ public class StudentManagement
         return ps.executeUpdate();
     }
 
+    /**
+     * Check if a student exists by its id.
+     * @param id The id of the student
+     * @return <code> true </code> of the student exists. <code> false </code> otherwise.
+     * @throws SQLException 
+     */
     public boolean isStudentExistsById(int id) throws SQLException
     {
         Statement s = dbConn.createStatement();
@@ -138,6 +157,13 @@ public class StudentManagement
         Statement s = dbConn.createStatement();
         return s.executeUpdate("DELETE FROM studentsInPeriod WHERE studentID=" + id);
     }
+    
+    /**
+     * Get the name of the student from database by its id.
+     * @param id The id of the student.
+     * @return The name of the student.
+     * @throws SQLException 
+     */
     public String getStudentNameById(int id) throws SQLException
     {
        ResultSet rs = dbConn.createStatement().executeQuery("SELECT name FROM students WHERE id="+id);
@@ -151,6 +177,14 @@ public class StudentManagement
         
     }
     
+    /**
+     * By importing a file in a specific format, this will automatically
+     * install students in a big group using the java addbatch mathod.
+     * @param in The group of student to be inserted, namelist on file.
+     * @return The rows affected for each time.
+     * @throws IOException
+     * @throws SQLException 
+     */
     public int[] insertStudentsInBatch(File in) throws IOException, SQLException
     {
         List<String> lines = Files.readAllLines(in.toPath());
@@ -180,6 +214,10 @@ public class StudentManagement
         return ps.executeBatch();
     }
     
+    /**
+     * Test main method.
+     * @param args 
+     */
     public static void main(String[] args)
     {
 

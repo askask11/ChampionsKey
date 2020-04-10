@@ -2,7 +2,7 @@
     Document   : Userhome
     Created on : 2020-3-8, 12:35:36
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : The "index" page after user have signed in.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,7 +34,7 @@
                 <form action='StudentSigninPortol'>
                     <button class='arrowbutton centralized center-text block' title='Click this to open the page which allows students sign-in'
                             ><span>Students Sign-in Panel</span></button>
-                    
+
                 </form>
                 <br>
                 <!-- Quick Tools:
@@ -76,64 +76,64 @@
 
                 <!--Attendance ID: ${activeAttandanceID}-->
                 <!--SELECT ALL-->
-                
+
                 <form target='student-list-iframe' class='form-inline' action='AttandanceStudentEmbedded'>
-                        <button class='arrowbutton whiteBg blue' title="Click to show all students."><span>Show All</span></button>
+                    <button class='arrowbutton whiteBg blue' title="Click to show all students."><span>Show All</span></button>
+                    <input type='hidden' value='${attandance.getAttandanceID()}' name='id'>
+                </form>
+
+                <form target="student-list-iframe" class='form-inline ' action='AttandanceStudentEmbedded' >
+                    <p> <strong> | OR | </strong>  Show by <span title="set student's attendance code as filter." class='help-title'>attendance</span>
+                        <input type='hidden' value='select-attendance-code' name='filter'>
                         <input type='hidden' value='${attandance.getAttandanceID()}' name='id'>
-                    </form>
+                        <select name="input" class='form-control' title="Show all students that satisify the status you selected.">
+                            <option value="1" selected>
+                                Present
+                            </option>
+                            <option value="2">
+                                Tardy
+                            </option>
+                            <option value="0">
+                                Absent
+                            </option>
+                        </select>
+                        <button class="btn btn-default" title="Confirm filter and refresh the list.">
+                            <span> Confirm</span>
+                        </button>
+                    </p>
+                </form>
 
-                    <form target="student-list-iframe" class='form-inline ' action='AttandanceStudentEmbedded' >
-                        <p> <strong> | OR | </strong>  Show by <span title="set student's attendance code as filter." class='help-title'>attendance</span>
-                            <input type='hidden' value='select-attendance-code' name='filter'>
-                            <input type='hidden' value='${attandance.getAttandanceID()}' name='id'>
-                            <select name="input" class='form-control' title="Show all students that satisify the status you selected.">
-                                <option value="1" selected>
-                                    Present
-                                </option>
-                                <option value="2">
-                                    Tardy
-                                </option>
-                                <option value="0">
-                                    Absent
-                                </option>
-                            </select>
-                            <button class="btn btn-default" title="Confirm filter and refresh the list.">
-                                <span> Confirm</span>
-                            </button>
-                        </p>
-                    </form>
+                <form target="student-list-iframe" class='form-inline ' action='AttandanceStudentEmbedded'>
+                    <p>
+                        <strong> | OR | </strong> Students by <span class="help-title" title="Sey the student's current location registered in the system as filter.">location:</span>
+                        <select class="form-control" name='input' title="Show all students that satisify the status you selected.">
+                            <option value="1" selected>
+                                Champion Hall
+                            </option>
+                            <option value="2">
+                                Learning Commons
+                            </option>
+                            <option value="3">
+                                School Store
+                            </option>
+                            <option value="0">
+                                Unknown
+                            </option>
+                        </select>
+                        <input type='hidden' value='${attandance.getAttandanceID()}' name='id'>
+                        <input type='hidden' value='select-location' name='filter'>
+                        <button class="btn btn-default" title="confirm and refresh your list."><span>Confirm</span></button>
+                    </p>
+                </form>
 
-                    <form target="student-list-iframe" class='form-inline ' action='AttandanceStudentEmbedded'>
-                        <p>
-                            <strong> | OR | </strong> Students by <span class="help-title" title="Sey the student's current location registered in the system as filter.">location:</span>
-                            <select class="form-control" name='input' title="Show all students that satisify the status you selected.">
-                                <option value="1" selected>
-                                    Champion Hall
-                                </option>
-                                <option value="2">
-                                    Learning Commons
-                                </option>
-                                <option value="3">
-                                    School Store
-                                </option>
-                                <option value="0">
-                                    Unknown
-                                </option>
-                            </select>
-                            <input type='hidden' value='${attandance.getAttandanceID()}' name='id'>
-                            <input type='hidden' value='select-location' name='filter'>
-                            <button class="btn btn-default" title="confirm and refresh your list."><span>Confirm</span></button>
-                        </p>
-                    </form>
-                
-
+                <!--The student list window.-->        
                 <iframe name="student-list-iframe" class="user-home-iframe"  frameBorder="0">
                     Your browser does not support iframe,
                     Visit <a href="https://windowsreport.com/browser-does-not-support-iframes/">Here</a> to fix the problem.
                 </iframe>
-                </div>            
-                            
-            
+            </div>            
+
+
             <!--Visiable if the user does has an active studyhall-->
             <div ${inactiveDivCSS}>
                 <h3>
@@ -147,22 +147,15 @@
                 </form>
             </div>
 
-                <h4>
-                    <img src="images/icons/smstar.svg" alt="smstar"><span class='help-cursor' title='Classes you hosted in the past.'>Your history attandances: </span>
-                </h4>
-                <form target="history-record-iframe" action="HistoryAttandanceEmbedded" method="GET">
-                    <button type="submit" class="arrowbutton whiteBg blue" title='click to show the record.'><span>Show</span></button>
-                    
-                </form>
-                <iframe name="history-record-iframe" id="history-record-iframe" class="user-home-iframe" frameBorder="0"></iframe>
-
-
-
-
+            <h4>
+                <img src="images/icons/smstar.svg" alt="smstar"><span class='help-cursor' title='Classes you hosted in the past.'>Your history attandances: </span>
+            </h4>
+            <form target="history-record-iframe" action="HistoryAttandanceEmbedded" method="GET">
+                <button type="submit" class="arrowbutton whiteBg blue" title='click to show the record.'><span>Show</span></button>
+            </form>
+            <iframe name="history-record-iframe" id="history-record-iframe" class="user-home-iframe" frameBorder="0"></iframe>
         </section>
         <br><br>
-
-
         <h4 class="white center-text centralized">
             Thanks for using champions key!
         </h4>

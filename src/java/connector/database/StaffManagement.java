@@ -17,7 +17,7 @@ import model.Staff;
 import org.xml.sax.SAXException;
 
 /**
- *
+ *This is a database class specfically to manage staffs.
  * @author Jianqing Gao
  */
 public class StaffManagement

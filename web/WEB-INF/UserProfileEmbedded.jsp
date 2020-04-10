@@ -2,7 +2,7 @@
     Document   : UserProfileEmbedded
     Created on : 2020-4-8, 0:16:28
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is an embedded page where user can edit its profile.
 --%>
 
 <%@ taglib prefix="lover" uri="http://java.sun.com/jsp/jstl/core" %>

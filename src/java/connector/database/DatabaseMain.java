@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-11 8:48:56
- * Description Of This Class:
+ * Description Of This Class: This is the class for connecting and accessing database.
  */
 package connector.database;
 
@@ -127,16 +127,29 @@ public class DatabaseMain implements AutoCloseable
         return new DatabaseMain(property.getProperty("dbName"), property.getProperty("address"), property.getProperty("username"), property.getProperty("password"), Boolean.parseBoolean(property.getProperty("useSSL")));
     }
 
+    /**
+     * A method to produce a small class.
+     * @return A object with this.dbconn and methods to manage staff table.
+     */
     public StaffManagement manageStaff()
     {
         return new StaffManagement(dbConn);
     }
 
+    /**
+     * Most of the database managing content is in this class.
+     * @return A class where contains most of the required files to manage a studyhall.
+     */
     public StudyhallManagement manageStudyHall()
     {
         return new StudyhallManagement(dbConn);
     }
 
+    /**
+     * An instance of <code> StudentManagement</code> will be
+     * constructed using the database connection given.
+     * @return A class where most of the methods are for access students.
+     */
     public StudentManagement manageStudents()
     {
         return new StudentManagement(dbConn);
@@ -153,6 +166,9 @@ public class DatabaseMain implements AutoCloseable
 //        }
     }
 
+    
+    ////Bunch of set and get methods ////// 
+    
     public Connection getDbConn()
     {
         return dbConn;
@@ -213,6 +229,10 @@ public class DatabaseMain implements AutoCloseable
         this.dbUseSSL = dbUseSSL;
     }
 
+    /**
+     * {@inheritDoc }
+     * @throws Exception 
+     */
     @Override
     public void close() throws Exception
     {

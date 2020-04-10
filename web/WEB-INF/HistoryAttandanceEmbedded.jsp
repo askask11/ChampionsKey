@@ -2,7 +2,7 @@
     Document   : HistoryAttandanceEmbedded
     Created on : 2020-3-21, 2:13:26
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription :  This is a page where user can see their classes hosted and manage them.
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

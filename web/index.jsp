@@ -2,7 +2,7 @@
     Document   : index
     Created on : 2020-3-6, 13:16:39
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is the home page of the user. Also the initalizing page.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -44,6 +44,7 @@
                 <div class='col-md-6'>
                     ${loginMessage} 
                     <!--Forgot password overlay message-->
+                    <%--Popup overlay class--%>
                     <div id="forgotPassword" class="overlay">
                         <div class="popup">
                             <!--Title here-->
