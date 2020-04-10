@@ -29,8 +29,8 @@ public class Randomizer
      * Produce a random double that is greater than lower bound but lower than
      * the upper bound.
      *
-     * @param lowerBound The minimun of the random double.
-     * @param upperBound The maximunmun of the random double.
+     * @param lowerBound The minimum of the random double.
+     * @param upperBound The maximum of the random double.
      * @return The random double produced.
      */
     public static double randomDouble(double lowerBound, double upperBound)

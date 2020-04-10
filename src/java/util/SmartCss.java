@@ -23,9 +23,9 @@ public class SmartCss
     private ArrayList<String[]> rules;
 
     /**
-     * Construct a new CSS declearation object with given declearation text.
+     * Construct a new CSS declaration object with given declaration text.
      *
-     * @param cssDeclearText The declearation text for CSS.
+     * @param cssDeclearText The declaration text for CSS.
      */
     public SmartCss(String cssDeclearText)
     {
@@ -61,7 +61,7 @@ public class SmartCss
     }
 
     /**
-     * Construct a default CSS declearation object with nothing in it.
+     * Construct a default CSS declaration object with nothing in it.
      */
     public SmartCss()
     {
@@ -70,9 +70,9 @@ public class SmartCss
     }
 
     /**
-     * Get the target of this declearation.
+     * Get the target of this declaration.
      *
-     * @return The tag of the css declearation.
+     * @return The tag of the css declaration.
      */
     public String getTarget()
     {
@@ -116,7 +116,7 @@ public class SmartCss
     }
 
     /**
-     * Get the sequence number of the CSS decleared in this object. Where is the
+     * Get the sequence number of the CSS declared in this object. Where is the
      * css property.
      *
      * @param name The CSS property to search.

@@ -5,7 +5,7 @@
 package util;
 
 /**
- * This is the class for generating Boorstrap messages. See also:
+ * This is the class for generating bootstrap messages. See also:
  * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
  *
  * @author Jianqing Gao
@@ -15,7 +15,7 @@ public class BSAlerts
 
     /**
      * Generates an HTML code which indicates a positive message, or a potential
-     * possitive action. This genetation is based on bootstrap. See also:
+     * positive action. This generation is based on bootstrap. See also:
      * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
      *
      * @param title The title of the HTML message to generated.
@@ -75,7 +75,7 @@ public class BSAlerts
      *
      * @param title The title of a message
      * @param content The content of the messages.
-     * @return The message base genetated to be used with other methods.
+     * @return The message base generated to be used with other methods.
      */
     private static String messageBase(String title, String content)
     {
