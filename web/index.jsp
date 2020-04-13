@@ -30,6 +30,7 @@
 
         <div class='index-center-container half-opaque'>
             <div class='row'>
+                <!-- Main title -->
                 <div class='col-md-6'>
                     <h1>
                         Manage A Study Hall Has Never Been So Easy!
