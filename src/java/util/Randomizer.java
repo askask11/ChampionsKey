@@ -101,7 +101,7 @@ public class Randomizer
      *
      * @param length The length of the new string identical number sequence.
      * @param isCaseRandom If randomize the case of the chars given.
-     * @param letters A set of chars that can be in the random set.
+     * @param letters A set of chars that can appear in the random sequence generated.
      * @return A new group of random letters and numbers.
      */
     public static String randomLetterNumber(int length, boolean isCaseRandom, char... letters)
