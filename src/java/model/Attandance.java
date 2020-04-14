@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-14 23:09:50
- * Description Of This Class:
+ * Description Of This Class: This is an abstraction class for attendance.
  */
 package model;
 
@@ -12,7 +12,7 @@ import java.time.ZoneId;
 import util.Randomizer;
 
 /**
- *
+ * This abstracts an attendance.
  * @author Jianqing Gao
  */
 public class Attandance
@@ -79,6 +79,10 @@ public class Attandance
         "Edmund Hillary",
         "Garrison Keillor"};
 
+    
+    /**
+     * Creates an empty instance of Attendance.
+     */
    public Attandance()
    {
        //LocalTime.of(periodID, periodID, periodID);
@@ -89,6 +93,9 @@ public class Attandance
        tardyTime = LocalTime.now();
    }
 
+   
+   ////set and get methods////
+   
     public int getAttandanceID()
     {
         return attandanceID;
@@ -150,13 +157,21 @@ public class Attandance
         this.tardyTime = tardyTime;
     }
 
+    /**
+     * {@inheritDoc }
+     * @return 
+     */
     @Override
     public String toString()
     {
         return "Attandance{" + "attandanceID=" + attandanceID + ", teacherID=" + teacherID + ", periodID=" + periodID + ", date=" + date + ", tardyTime=" + tardyTime + '}';
     }
     
-    
+    /**
+     * Test main method.
+     * 
+     * @param args 
+     */
     public static void main(String[] args)
     {
         Attandance attendance = new Attandance();

@@ -2,7 +2,7 @@
     Document   : SignUp
     Created on : 2020-3-10, 18:34:38
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a page for teachers to sign up.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,6 +25,7 @@
             <h3><img src="images/icons/smrdflag.svg" class="icon-32">Sign-up now to start an efficiently managed studyhall!</h3>
             
  
+            <!--A message that will show up to support staffs.-->
             ${signupMessage}
             <div class="row">
                 <div class="col-md-6">
@@ -57,12 +58,12 @@
                         </div>
 
 
-                        <button type="submit" class="arrowbutton whiteBg blue" id><span>Sign-up!</span></button>
+                        <button type="submit" class="arrowbutton whiteBg blue" id="sign-up"><span>Sign-up!</span></button>
                     </form>
                 </div>
                 <div class="col-md-6">
                     <br><br><br>
-                    <img src="images/manage-pic-3.png" width="400">
+                    <img src="images/manage-pic-3.png" width="400" alt="manage pic conf">
                 </div>
             </div>
         </div>

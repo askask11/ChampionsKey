@@ -2,7 +2,7 @@
     Document   : ManageStudents
     Created on : 2020-3-17, 23:28:01
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a class where staffs can manage students.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

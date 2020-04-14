@@ -2,7 +2,7 @@
     Document   : StudentSigninEmbedded
     Created on : 2020-3-20, 16:25:08
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is an embedded page where shows the status of a student sign-in.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,6 +26,7 @@
         </h3>
         <br><br>
         
+        <%--This is where the encouraging quote goes.--%>
         ${toolText}
         <blockquote ${successQuoteCss.getAttributeStyle()}>
             ${successQuote}

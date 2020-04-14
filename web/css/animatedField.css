@@ -1,10 +1,10 @@
 /*Editor: Johnson Gao 
 Date This File Created: 2020-3-8 14:47:42
-Description Of This Class:
+Description Of This Class: This class is used for the animated field where when user click on it can show a surprising effect.
 */
 /* 
     Created on : 2020-3-8, 14:47:42
-    Author     : app
+    Author     : Jianqing Gao
 */
 
 /**********        ANIMATED TEXT CONTAINER  ******************/
@@ -70,6 +70,8 @@ format the label around the textfield*/
     left: 0px;/*the distance of left size between the text and its ancestor element(label)*/
     transition: all 0.3s ease; /*except for the 0.3s,time of transit from the buttom to the top(as the input take place) by default.*/
 }
+
+/**/
 
 .animated-text-input-container input:focus + .label-name .content-name ,/*when user click on it or when the textfield have some contents*/
 .animated-text-input-container input:valid+ .label-name .content-name 

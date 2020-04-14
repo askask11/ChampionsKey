@@ -2,7 +2,7 @@
     Document   : Verify
     Created on : 2020-3-12, 14:20:05
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a page where user's information will be verified.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,6 +16,7 @@
     <body id="userhome-body">
 
         <header>
+            <!--Header-->
             <%@include file="/WEB-INF/jspf/navbar.jspf" %>
             <br>
             <h1 class="center-text">
@@ -30,7 +31,8 @@
             </h3>
 
             ${verifyMessageBody}
-
+            
+            <%--Click to go home.--%>
             <form action="index" method="GET">
                 <button class="whiteBg blue arrowbutton" type="submit">
                     <span>Home</span>

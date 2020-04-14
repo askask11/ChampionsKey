@@ -83,7 +83,7 @@
                             <c:set var="attendance" value="${hallManager.selectAttandanceRegisterByAttID(id)}" />
                             <div class="alert alert-success">
                                 <strong>Note</strong> You are currently editing <strong>${hallManager.selectDescriptionFromPeriodByID(attendance.getPeriodID())}</strong>. <span class="help-title" title="After this time, student signed in will be counted as tardy.">Tardy time:</span> <strong>${attendance.getTardyTimeAsString()}</strong>. Date:<strong>${attendance.getDateAsString()}</strong>.
-                                
+
                                 <%-- Filter: Displaying ${filter==null?"All students.":(filter.equals("select-attendance-code")?"students by attendance status":filter.equals("select-location")?"by student's location":"All students")}--%>
                                 Filter: <strong> ${userFilter} </strong>
                                 <span class="right help-title" title="For select boxes, click the green tick to confirm update. For 'description', hit 'enter' key to confirm update.">How to edit?</span>
@@ -139,7 +139,7 @@
                                                     <option value="3"  ${(location==3)?"selected":""} >School Store</option>
                                                     <option value="0"  ${(location==0)?"selected":""} >Unknown</option>
                                                 </select>
-                                                
+
                                                 <button class="transparentButton" type="submit"><img src="images/icons/smgreentick.svg" class="margin-bottom-6 icon-16"></button>
                                             </form>
                                         </td>
@@ -170,19 +170,19 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
-                                    <!--Add Stdent In Period Temporary-->
+                                <!--Add Stdent In Period Temporary-->
                             </tbody>
                         </table>
-                            <form action="AttandanceStudentEmbedded" method="POST" class="form-inline">
-                                
-                                <input type='hidden' name='action' value='insert'>
-                                <input type="hidden" name="attandanceID" value="${id}">
-                                <label for="studentID">
-                                    Add New Student:
+                        <form action="AttandanceStudentEmbedded" method="POST" class="form-inline">
+
+                            <input type='hidden' name='action' value='insert'>
+                            <input type="hidden" name="attandanceID" value="${id}">
+                            <label for="studentID">
+                                Add New Student:
                                 <input id="studentID" type="number" class="form-control" name="studentID" placeHolder="Enter ID here" title="If you add a student here, the student will be registered in this class only this time. If you would like to enroll a student, please go to 'Manage Periods'.">
-                                </label>
-                                <button type="submit" class="btn btn-default">Confirm</button>
-                            </form>
+                            </label>
+                            <button type="submit" class="btn btn-default">Confirm</button>
+                        </form>
 
                     </c:otherwise>
                 </c:choose>

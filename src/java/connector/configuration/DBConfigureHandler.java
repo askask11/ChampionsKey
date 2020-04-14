@@ -182,4 +182,10 @@ public class DBConfigureHandler extends DefaultHandler
 //        this.properties = properties;
 //    }
     
+    public static void main(String[] args)
+    {
+        DBConfigureHandler handler = new DBConfigureHandler();
+        ///This is an embedded class. Testing method is not capable for this.
+    }
+    
 }

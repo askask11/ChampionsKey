@@ -2,7 +2,7 @@
     Document   : PasswordRecovery
     Created on : 2020-4-5, 4:52:13
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a page where user can recover their password.
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,6 +23,10 @@
         <br>
         <br>
 
+        <%--
+        
+        I PROMISE I NEVER EVER GOING TO DO HEAVY DUTY ON JSP!
+        
         <%--read the "bash" value from parameter.--%>
         <c:set var="bash" scope="page" value="${param.bash}" />
         <c:set var="dbMain" scope="page" value="${DatabaseMain}"></c:set>
@@ -38,9 +42,10 @@
                 <c:when test="${empty bash}">
                     <%--Either a new ruqest or a new request be submitted.
                     Need to be determined by "action"
-                    --%>
-                    <%--Action?--%>
+                    
+                    <%-- Receive and determine action?--%>
 
+                    
                     <c:choose>
                         <c:when test="${empty action}">
                             <%--A plain new request never be submitted
@@ -107,6 +112,7 @@
 
 
 
+                                            <%--Invalid action.--%>
                         <c:otherwise>
                             <%--Ending cluse of action.--%>
                             Error: Unknown Action type. Action = ${action}
@@ -194,7 +200,7 @@
                     </c:catch>
                     <c:if test="${sqle!=null}">
                         <h1 class='red'>Exception happened!</h1>
-                        
+
                         <h4>Please report this page with full stack trace to report@gaogato.com</h4>
                         Full stack trace:
                         ${sqle.message}

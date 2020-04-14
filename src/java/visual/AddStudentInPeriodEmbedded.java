@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-20 21:34:01
- * Description Of This Class:
+ * Description Of This Class: This class is never used. This is created just for fun. Please ignore this page when you are gradingmy project!
  */
 package visual;
 
@@ -16,7 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 /**
- *
+ *This class is never used. This is created just for fun. Please ignore this page when you are gradingmy project!
  * @author Jianqing Gao
  */
 public class AddStudentInPeriodEmbedded extends javax.swing.JApplet

@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-14 0:42:48
- * Description Of This Class:
+ * Description Of This Class: This parse the String from hex to encoded string.
  */
 package util;
 

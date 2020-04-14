@@ -26,7 +26,7 @@ import util.BSAlerts;
 import util.SmartCss;
 
 /**
- *
+ * Processes all doget methods.
  * @author Jianqing Gao
  */
 public class ServletGetProcessor implements ServletProcessor
@@ -43,6 +43,11 @@ public class ServletGetProcessor implements ServletProcessor
         init(request, response,servlet);
     }
 
+    /**
+     * Process the request and response from the main servlet.
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     public void process() throws ServletException, IOException
     {
@@ -119,7 +124,11 @@ public class ServletGetProcessor implements ServletProcessor
                 break;
         }
     }
-    
+    /**
+     * Process the attendance page of students using HTTP get method.
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void processAttandanceStudentEmbeddedGET()throws ServletException, IOException
     {
         String filter = request.getParameter("filter");
@@ -205,10 +214,15 @@ public class ServletGetProcessor implements ServletProcessor
     
     
 
+    /**
+     * Process the history attendance page.
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void processHistoryAttandanceEmbeddedGET() throws ServletException, IOException
     {
         Object staff = session.getAttribute("staff");
-        Object attandance = session.getAttribute("attandance");
+//        Object attandance = session.getAttribute("attandance");
         DatabaseMain dbMain = (DatabaseMain)session.getAttribute("DatabaseMain");
         String action = request.getParameter("action");
         String studentMessage = "";
@@ -466,12 +480,21 @@ public class ServletGetProcessor implements ServletProcessor
 
     //servlet process methods
     //<editor-fold>
+    /**
+     * {@inheritDoc }
+     * @return 
+     */
     @Override
     public HttpServletRequest getHttpServletRequest()
     {
         return request;
     }
 
+    /**
+     * {@inheritDoc}
+     * 
+     * @param request 
+     */
     @Override
     public void setHttpServletRequest(HttpServletRequest request)
     {
@@ -518,11 +541,22 @@ public class ServletGetProcessor implements ServletProcessor
         return userPath;
     }
 
+    /**
+     * Forward a user to a specific path.
+     * @param path
+     * @throws ServletException
+     * @throws IOException 
+     */
     public void forward(String path) throws ServletException, IOException
     {
         request.getRequestDispatcher(path + ".jsp").forward(request, response);
     }
 
+    /**
+     * Prints out the default servlet page for security.
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processRequest()
             throws ServletException, IOException
     {

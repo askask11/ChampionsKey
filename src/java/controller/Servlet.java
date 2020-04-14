@@ -1,6 +1,6 @@
 /*Editor: Johnson Gao 
  * Date This File Created: 2020-3-8 12:43:49
- * Description Of This Class:
+ * Description Of This Class: This is the main servlet of the application. All requests must go through here.
  */
 package controller;
 

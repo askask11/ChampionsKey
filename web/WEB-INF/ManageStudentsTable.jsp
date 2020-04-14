@@ -2,7 +2,7 @@
     Document   : ManageStudentsTable
     Created on : 2020-3-18, 2:34:08
     Author     : Jianqing Gao
-    Desctription : 
+    Desctription : This is a embedded table to allow staff to manage student.
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
