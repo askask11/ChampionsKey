@@ -309,7 +309,11 @@ h1, h4
     display:none;
 }
 
-
+.captcha-image
+{
+    width: 100px;
+    height: 39px;
+}
 
 /*declears an "object" for animation
 For this effect, it should take 1 sec.*/

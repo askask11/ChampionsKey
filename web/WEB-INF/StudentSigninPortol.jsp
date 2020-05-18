@@ -41,6 +41,8 @@
                     <input type="number" required title="Enter/scan users ID to continue" autofocus name="id"/>
                     <label class="label-name"><span class="content-name">Enter ID/Name: </span></label>
                 </div>
+                
+                <!---->
 
                 <!--<span id="sign-in-bytext"> &nbsp; Sign-in by </span>
                 <%--Select--%>

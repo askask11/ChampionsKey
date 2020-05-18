@@ -65,7 +65,7 @@ public class SmartCss
      */
     public SmartCss()
     {
-        target = "";
+        target = "body";
         rules = new ArrayList<>();
     }
 
@@ -254,14 +254,14 @@ public class SmartCss
      */
     public static void main(String[] args)
     {
-        SmartCss smartCss = new SmartCss("body{background-color:white;color:yellow;margin-top:150px;}");
-        System.out.println(smartCss.getPropertySequenceIndex("color"));
-        System.out.println(smartCss.getAttributeStyle());
-        System.out.println(smartCss.getDeclearation());
+        SmartCss smartCss = new SmartCss();
+//        System.out.println(smartCss.getPropertySequenceIndex("color"));
+//        System.out.println(smartCss.getAttributeStyle());
+//        System.out.println(smartCss.getDeclearation());
         smartCss.setProperty("margin", "auto");
         smartCss.setProperty("color", "white");
         smartCss.setProperty("padding", "4px");
-        System.out.println(smartCss);
+        System.out.println(smartCss.getAttributeStyle());
 
     }
 

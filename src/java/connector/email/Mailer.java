@@ -4,12 +4,7 @@
  */
 package connector.email;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -121,49 +116,57 @@ public class Mailer
      */
     public static void sendDefaultMail(String recipient, String subject, String content) throws MessagingException
     {
-        sendEmail("smtp.ionos.com", "587", "noreply@villagechemcats.com", "Abc_3266933", recipient, subject, content);
+        sendEmail("smtp.ionos.com", "587", "noreply@villagechemcats.com", "&fkK6tAK98g}@FBb", recipient, subject, content);
         //sendEmail(/*"mail.villagechemcats.com"*/"smtp.gmail.com", "465",/*"26"*/, /*"xeduoover18@gmail.com", "iifcpofrcjtgugop"*/,"johnson@villagechemcats.com","3266933", recipient, subject, content);
     }
 
     public static void sendUserVerificationMail(String recepient, String verifyBash) throws IOException, MessagingException
     {
-        URL mailUrl = new URL("http://email.gaogato.com/ChampionsKey_RegisterAccount?bash=" + verifyBash);
-        String content = getMailFromDefaultMailServer(mailUrl);
-        sendDefaultMail(recepient, "New User Verification", content);
+//        URL mailUrl = new URL("http://email.gaogato.com/ChampionsKey_RegisterAccount?bash=" + verifyBash);
+//        String content = getMailFromDefaultMailServer(mailUrl);
+        sendDefaultMail(recepient, "New User Verification", "You have recently registered an account in championskey.gaogato.com"
+                + "<br> Please click this link to finish your registeration."
+                + "<br>" + "https://championskey.gaogato.com/Verify?bash=" + verifyBash + "<br>Best,"
+                + "<br>Champions Key Manager"
+                + "<br>Jianqing Gao");
     }
 
     public static void sendPasswordRecoveryMail(String recepient, String username, String verifyBash) throws IOException, MessagingException
     {
-        URL url = new URL("http://email.gaogato.com/ChampionsKey_PasswordRecovery?bash=" + verifyBash + "&name=" + username);
-        String content = getMailFromDefaultMailServer(url);
-        sendDefaultMail(recepient, "Password Recovery", content);
+//        URL url = new URL("http://email.gaogato.com/ChampionsKey_PasswordRecovery?bash=" + verifyBash + "&name=" + username);
+//        String content = getMailFromDefaultMailServer(url);
+        sendDefaultMail(recepient, "Password Recovery", "You have recently requested your password in championskey.gaogato.com"
+                + "<br> Please click this link to finish your password recover process."
+                + "<br>" + "https://championskey.gaogato.com/PasswordRecovery?bash=" + verifyBash
+                + "<br>Best,"
+                + "<br>Champions Key Manager"
+                + "<br>Jianqing Gao");
     }
 
-    public static String getMailFromDefaultMailServer(URL url) throws IOException
-    {
-        URLConnection webConnection;
-        InputStream mailStream;
-        String line;
-        String content = "";
-        //connection to email server
-        webConnection = url.openConnection();
-        //request confirm to send the server
-        webConnection.connect();
-        //download the mail content
-        mailStream = webConnection.getInputStream();
-
-        //write everything in a string
-        try (BufferedReader read = new BufferedReader(new InputStreamReader(mailStream)))
-        {
-            while ((line = read.readLine()) != null)
-            {
-                content += line;
-            }
-        }
-        //return the whole String
-        return content;
-    }
-
+//    public static String getMailFromDefaultMailServer(URL url) throws IOException
+//    {
+//        URLConnection webConnection;
+//        InputStream mailStream;
+//        String line;
+//        String content = "";
+//        //connection to email server
+//        webConnection = url.openConnection();
+//        //request confirm to send the server
+//        webConnection.connect();
+//        //download the mail content
+//        mailStream = webConnection.getInputStream();
+//
+//        //write everything in a string
+//        try (BufferedReader read = new BufferedReader(new InputStreamReader(mailStream)))
+//        {
+//            while ((line = read.readLine()) != null)
+//            {
+//                content += line;
+//            }
+//        }
+//        //return the whole String
+//        //return Commander.executeCommand("curl " + url);
+//    }
     public static void main(String[] args)
     {
         try

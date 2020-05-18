@@ -6,7 +6,7 @@ package util;
 
 /**
  * This is the class for generating bootstrap messages. See also:
- * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
+ * See also: <a href="https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
  *
  * @author Jianqing Gao
  */
@@ -16,7 +16,7 @@ public class BSAlerts
     /**
      * Generates an HTML code which indicates a positive message, or a potential
      * positive action. This generation is based on bootstrap. See also:
-     * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
+     * See also: <a href="https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
      *
      * @param title The title of the HTML message to generated.
      * @param content The body content of the HTML message.
@@ -29,7 +29,7 @@ public class BSAlerts
 
     /**
      * This generates a neutral HTML message. See also:
-     * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
+     * See also: <a href="https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
      *
      * @param title The title of the message
      * @param content The body content of the message.
@@ -43,7 +43,7 @@ public class BSAlerts
     /**
      * This generates a warning HTML message with potential negative action. See
      * also:
-     * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
+     * See also: <a href="https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
      *
      * @param title The title of the message
      * @param content The body content of the message.
@@ -58,7 +58,7 @@ public class BSAlerts
      * This indicates a danger message, or a potential negative action.
      * <div style="background-color: pink; color: red;"><strong>Warning</strong></div>
      * See also:
-     * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
+     * See also: <a href="https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
      *
      * @param title The title of the danger message
      * @param content The body content of the danger message.
@@ -71,7 +71,7 @@ public class BSAlerts
 
     /**
      * The common base of a message. See also:
-     * <a href="See also: https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
+     * See also: <a href="https://www.w3schools.com/bootstrap/bootstrap_alerts.asp">https://www.w3schools.com/bootstrap/bootstrap_alerts.asp</a>
      *
      * @param title The title of a message
      * @param content The content of the messages.
@@ -81,6 +81,12 @@ public class BSAlerts
     {
         return "<div style=\"float:right; cursor:pointer;\" onclick=\"this.parentElement.classList.toggle('hide'); \">X</div>"
                 + "<strong>" + title + "</strong> &nbsp;" + content + "</div>";
+    }
+    
+    
+    public static void main(String[] args)
+    {
+        
     }
 
 }

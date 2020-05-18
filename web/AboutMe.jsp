@@ -15,8 +15,8 @@
     <body class='min-height100 height100'>
         <%@include file="/WEB-INF/jspf/navbar.jspf" %>
         <%--The main body of your content.--%>
-        <iframe src='${pageContext.request.protocol.split('/')[0].equals('HTTP')?"http":"https"}://jianqinggao.com' class='full-width height100' frameborder='0'>
-            Please return to pervious page because your browser does not support iframe.
+        <iframe src='https://jianqinggao.com' class='full-width height100' frameborder='0'>
+            Please return to previous page because your browser does not support iframe.
         </iframe>
     </body>
 </html>

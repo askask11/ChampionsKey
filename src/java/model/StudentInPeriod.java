@@ -67,5 +67,10 @@ public class StudentInPeriod extends Student
     {
         return super.toString() + " {periodId =" + periodId + "}";
     }
+    
+    public static void main(String[] args)
+    {
+        System.out.println(new StudentInPeriod());
+    }
 
 }

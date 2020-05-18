@@ -9,11 +9,15 @@ import connector.database.StaffManagement;
 import connector.database.StudentManagement;
 import connector.database.StudyhallManagement;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +27,7 @@ import model.Attandance;
 import model.Staff;
 import model.Student;
 import util.BSAlerts;
+import util.Captcha;
 import util.SmartCss;
 
 /**
@@ -119,10 +124,39 @@ public class ServletGetProcessor implements ServletProcessor
             case "/PasswordRecovery":
                 processPasswordRecoveryGET();
                 break;
+            case "/Captcha":
+                processCaptchaGET();
+                break;
             default:
                 processRequest();
                 break;
         }
+    }
+    
+    protected void processCaptchaGET()
+    {
+        //decide the returning datatype and avoid potential security issues.
+        response.setDateHeader("Expires", 0);
+        response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+        response.addHeader("Cache-Control", "post-check=0, pre-check=0");
+        response.setHeader("Pragma", "no-cache");
+        response.setContentType("image/jpeg");
+
+        Captcha captcha = Captcha.generateCaptcha(100/*width*/, 35 /*height*/, 4);
+
+        try (OutputStream os = response.getOutputStream())
+        {
+            captcha.setExpireTime(LocalDateTime.now(ZoneId.of("UTC")).plusMinutes(5));//set expire 5 mins later.
+            session.setAttribute("captcha", captcha);//user may only hold one captcha at a time. The captcha will be used app wise.
+            //no forward required.
+            //write the image onto the page
+            ImageIO.write(captcha.getImage(), "jpg", os);
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
     }
     /**
      * Process the attendance page of students using HTTP get method.

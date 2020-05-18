@@ -16,15 +16,15 @@
     <body id="userhome-body">
         <header>
             <%@include file="/WEB-INF/jspf/navbar.jspf" %>
-        
+
             <h1 class="center-text white">Sign Up</h1>
         </header>
         <br>
         <div class="container opacity-08">
-         
+
             <h3><img src="images/icons/smrdflag.svg" class="icon-32">Sign-up now to start an efficiently managed studyhall!</h3>
-            
- 
+
+
             <!--A message that will show up to support staffs.-->
             ${signupMessage}
             <div class="row">
@@ -40,26 +40,40 @@
                             <input type="email" id="emailField" required title="Please use your school email" name="email" autocomplete="off"/>
                             <label class="label-name"><span class="content-name">Email:</span></label>
                         </div>
-                        
+
                         <div class="animated-text-input-container width-80">
                             <input type="number" id="idField" required title="Please use your school email" name="id" autocomplete="off"/>
                             <label class="label-name"><span class="content-name">Badge ID</span></label>
                         </div>
-                    
+
 
                         <div class="animated-text-input-container width-80">
                             <input type="text" id="legalNameField" required title="Your FULL name" name="legalname" autocomplete="off"/>
                             <label class="label-name"><span class="content-name">Your Full Name: </span></label>
                         </div>
-                        
+
                         <div class="animated-text-input-container width-80">
                             <input type="password" id="passwordField" required title="password" name="password" autocomplete="off"/>
                             <label class="label-name"><span class="content-name">Password: </span></label>
                         </div>
-
-
+                        <iframe name="captcha-image" class="captcha-image" src="Captcha" ></iframe>
+                        <div class="animated-text-input-container ">
+                            <input type="text"  required title="" name="captcha" autocomplete="off"/>
+                            <label class="label-name"><span class="content-name">Verify code: </span></label>
+                        </div>
                         <button type="submit" class="arrowbutton whiteBg blue" id="sign-up"><span>Sign-up!</span></button>
                     </form>
+
+
+                   
+                    
+                    <form action="Captcha" target="captcha-image">
+                        <button class="btn btn-default" type="submit">Reload Verify Code</button>
+                    </form>
+
+
+
+
                 </div>
                 <div class="col-md-6">
                     <br><br><br>

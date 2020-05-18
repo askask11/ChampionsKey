@@ -1,5 +1,8 @@
 package util;
 
+import java.awt.Color;
+import java.util.Random;
+
 /*Editor: Johnson Gao
  * Date This Project Created: Jan 28 2020
  * Description Of This Class: This class enables the app to generate numbers.
@@ -186,7 +189,15 @@ public class Randomizer
         String bash = Randomizer.randomLetterNumber(60, true, "QWERTYUIOPASDFGHJKLZXCVBNM".toCharArray());
         return bash;
     }
-
+    static Color getRandomColor(int fc, int bc) {
+        Random random = new Random();
+        if (fc > 255) fc = 255;
+        if (bc > 255) bc = 255;
+        int r = fc + random.nextInt(bc - fc);
+        int g = fc + random.nextInt(bc - fc);
+        int b = fc + random.nextInt(bc - fc);
+        return new Color(r, g, b);
+    }
     /**
      * Test main method.
      *

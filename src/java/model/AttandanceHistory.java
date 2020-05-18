@@ -133,5 +133,10 @@ public class AttandanceHistory extends Object
     {
         return "StudentAttandanceRecord{" + "studentID=" + studentID + ", attandanceID=" + attandanceID + ", lastUpdateTime=" + lastUpdateTime + ", location=" + location + ", attandance=" + attandanceCode + ", description=" + description + '}';
     }
+    
+    public static void main(String[] args)
+    {
+        System.out.println(new AttandanceHistory());
+    }
 
 }

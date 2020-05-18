@@ -80,4 +80,8 @@ public class Student
         return "Student{" + "id=" + id + ", grade=" + grade + ", name=" + name + '}';
     }
 
+    public static void main(String[] args)
+    {
+        System.out.println(new Student());
+    }
 }

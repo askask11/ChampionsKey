@@ -47,7 +47,8 @@ import org.xml.sax.SAXException;
     "/UploadStudentsList",
     "/PasswordRecovery",
     "/UserProfileEmbedded",
-            "/AboutMe"
+            "/AboutMe",
+            "/Captcha"
 }, loadOnStartup = 1
 )
 @MultipartConfig //file upload

@@ -77,9 +77,8 @@
                             <label for="password"><img src="images/icons/smkeyheart.svg" class="icon-16 margin-bottom-9" alt="password">Password:</label>
                             <input type="password" class="form-control" id="password-field" name='password' >
                         </div>
-                        <!--<div class="checkbox">
-                            <label><input type="checkbox"> Remember me</label>
-                        </div>-->
+                        <!--  -->
+                        
                         <button type="submit" class="btn btn-default blue"><span class="glyphicon glyphicon-ok green"></span>Submit</button>
                     </form>
                 </div>

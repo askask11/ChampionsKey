@@ -148,7 +148,7 @@
             </div>
 
             <h4>
-                <img src="images/icons/smstar.svg" alt="smstar"><span class='help-cursor' title='Classes you hosted in the past.'>Your history attandances: </span>
+                <img src="images/icons/smstar.svg" alt="smstar"><span class='help-cursor' title='Classes you hosted in the past.'>Your history attendances: </span>
             </h4>
             <form target="history-record-iframe" action="HistoryAttandanceEmbedded" method="GET">
                 <button type="submit" class="arrowbutton whiteBg blue" title='click to show the record.'><span>Show</span></button>

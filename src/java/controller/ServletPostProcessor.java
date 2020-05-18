@@ -9,16 +9,12 @@ import connector.database.StaffManagement;
 import connector.database.StudentManagement;
 import connector.database.StudyhallManagement;
 import connector.email.Mailer;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.URL;
-import java.net.URLConnection;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -39,6 +35,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import util.BSAlerts;
+import util.Captcha;
 import util.Randomizer;
 import util.SmartCss;
 
@@ -58,9 +55,10 @@ public class ServletPostProcessor implements ServletProcessor
 
     /**
      * Initalizing method.
+     *
      * @param request
      * @param response
-     * @param servlet 
+     * @param servlet
      */
     public ServletPostProcessor(HttpServletRequest request, HttpServletResponse response, HttpServlet servlet)
     {
@@ -70,8 +68,9 @@ public class ServletPostProcessor implements ServletProcessor
 
     /**
      * {@inheritDoc }
+     *
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     @Override
     public void process() throws ServletException, IOException
@@ -156,6 +155,7 @@ public class ServletPostProcessor implements ServletProcessor
 
     /**
      * User profile action activated!.
+     *
      * @throws java.io.IOException
      * @throws javax.servlet.ServletException
      */
@@ -164,13 +164,13 @@ public class ServletPostProcessor implements ServletProcessor
         //decleat attr, get required parameter.
         String action = request.getParameter("action");
         StaffManagement manager;
-        DatabaseMain databaseMain = (DatabaseMain)session.getAttribute("DatabaseMain");
-        Staff staff = (Staff)session.getAttribute("staff");
+        DatabaseMain databaseMain = (DatabaseMain) session.getAttribute("DatabaseMain");
+        Staff staff = (Staff) session.getAttribute("staff");
         //detect possible null pointer
         if (databaseMain == null || staff == null)
         {
             //reject, session expired.
-            try(PrintWriter writer = response.getWriter())
+            try (PrintWriter writer = response.getWriter())
             {
                 writer.write("<h1>Your session is expired.</h1>"
                         + "Please <strong><a href='index' target='_parent'>log in>></a></strong>"
@@ -213,11 +213,11 @@ public class ServletPostProcessor implements ServletProcessor
         //try to update user
         try
         {
-            if(manager.updateLegalNameById(staff.getId(), legalName) == 1)            
+            if (manager.updateLegalNameById(staff.getId(), legalName) == 1)
             {
                 profileMessage = BSAlerts.successMessage("Successful!", "You name has been updated!");
                 staff.setLegalName(legalName);
-            }else
+            } else
             {
                 profileMessage = BSAlerts.infoMessage("Maybe updated", "Your info may be updated. If not, please contact report@gaogato.com!");
             }
@@ -230,20 +230,20 @@ public class ServletPostProcessor implements ServletProcessor
         session.setAttribute("profileMessage", profileMessage);
         request.getRequestDispatcher("/WEB-INF" + userPath + ".jsp").forward(request, response);
     }
-    
-     private void updateStaffUsername(Staff staff, StaffManagement manager) throws ServletException, IOException
+
+    private void updateStaffUsername(Staff staff, StaffManagement manager) throws ServletException, IOException
     {
         String userName = request.getParameter("username");
         String profileMessage;
         //try to update user
         try
         {
-            if(manager.updateUserNameById(staff.getId(), userName) == 1)            
+            if (manager.updateUserNameById(staff.getId(), userName) == 1)
             {
                 profileMessage = BSAlerts.successMessage("Successful!", "You username has been updated!");
                 staff.setUsername(userName);
-                
-            }else
+
+            } else
             {
                 profileMessage = BSAlerts.infoMessage("Maybe updated", "Your info may be updated. If not, please contact report@gaogato.com!");
             }
@@ -254,11 +254,10 @@ public class ServletPostProcessor implements ServletProcessor
         }
         //forward user
         session.setAttribute("profileMessage", profileMessage);
-        session.setAttribute("username",userName);
+        session.setAttribute("username", userName);
         request.getRequestDispatcher("/WEB-INF" + userPath + ".jsp").forward(request, response);
     }
-    
-    
+
     private void updateStaffPassword(Staff staff, StaffManagement manager) throws ServletException, IOException
     {
         //declear vars
@@ -266,19 +265,19 @@ public class ServletPostProcessor implements ServletProcessor
         String profileMessage;
         //get params
         oldPassword = request.getParameter("oldPassword");
-        password1= request.getParameter("password1");
-        password2= request.getParameter("password2");
-        if(!password1.equals(password2))
+        password1 = request.getParameter("password1");
+        password2 = request.getParameter("password2");
+        if (!password1.equals(password2))
         {
             profileMessage = BSAlerts.warningMessage("Different Passwords", "Two passwords you entered are different. Please enter again!");
-        }else
+        } else
         {
             //they are same entries
-            if(oldPassword.equals(password1))
+            if (oldPassword.equals(password1))
             {
                 //old password cannot equals to new password, reject
                 profileMessage = BSAlerts.warningMessage("Same Password", "New password cannot be the same as the old ones.");
-            }else
+            } else
             {
                 try
                 {
@@ -293,7 +292,7 @@ public class ServletPostProcessor implements ServletProcessor
                 }
             }
         }
-        session.setAttribute("profileMessage",profileMessage);
+        session.setAttribute("profileMessage", profileMessage);
         request.getRequestDispatcher("/WEB-INF" + userPath + ".jsp").forward(request, response);
     }
 
@@ -664,8 +663,9 @@ public class ServletPostProcessor implements ServletProcessor
 
     /**
      * A form about period is submitted.
+     *
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     public void processManagePeriodsPOST() throws ServletException, IOException
     {
@@ -1155,10 +1155,10 @@ public class ServletPostProcessor implements ServletProcessor
                 studentIDs = manager.selectFromStudentsInPeriodByPeriodId(periodId);
                 manager.insertBatchIntoAttandanceHistoryDefault(attandanceID, studentIDs, ZoneId.of("UTC-5"));
                 //4.kick user to sign-in page if the checkbox is checked. Else, kick to userhome.
-                
+
                 if (goSignin)
                 {
-                    session.setAttribute("attandance",attandance);//register it in.
+                    session.setAttribute("attandance", attandance);//register it in.
                     response.sendRedirect(request.getContextPath() + "/StudentSigninPortol");
                 } else
                 {
@@ -1189,7 +1189,7 @@ public class ServletPostProcessor implements ServletProcessor
 
         try
         {
-            String username, email, legalname, password, id, bash;
+            String username, email, legalname, password, id, bash, captchaInput;
             //String bashLink = "http://localhost:8080/ChampionsKey/Verify?bash=";
             DatabaseMain connector = DatabaseMain.getDefaultInstance();
             StaffManagement manager = connector.manageStaff();
@@ -1200,43 +1200,59 @@ public class ServletPostProcessor implements ServletProcessor
             legalname = request.getParameter("legalname");
             password = request.getParameter("password");
             id = request.getParameter("id");
+            captchaInput = request.getParameter("captcha");
 
-            //check if this is a staff email
-            if (email.endsWith("@thevillageschool.com") || email.equals("jianqing_gao@s.thevillageschool.com"))
+            Captcha captcha = (Captcha) session.getAttribute("captcha");
+
+            if (captchaInput.equals(captcha.getBody()))
             {
-                //check email duplicatioon
-                if (!manager.isUserExistsByEmail(email))
+                //check if this is a staff email
+                if (LocalDateTime.now(ZoneId.of("UTC")).isBefore(captcha.getExpireTime()))
                 {
-                    //CHECK USERNAME DUPLICATION
-                    if (!manager.isUserExistsByUsername(username))
+                    if (email.endsWith("@thevillageschool.com") || email.equals("jianqing_gao@s.thevillageschool.com"))
                     {
-                        //try to register the account first
-                        manager.insertIntoStaffTable(new Staff(email, username, password, legalname, Integer.parseInt(id)), -1);
-                        bash = Randomizer.randomLetterNumber(60, true, "qwertyuiopasdfghjklzxcvbnm".toCharArray());
-                        //bashLink += bash;
-
-                        if (manager.registerBash(Integer.parseInt(id), bash) == 1)
+                        //check email duplicatioon
+                        if (!manager.isUserExistsByEmail(email))
                         {
-                            Mailer.sendUserVerificationMail(email, bash);
-                            message = BSAlerts.successMessage("success", "Please check your email for update! If you found a blank mail, click \"expand trimmed content.\" If there is actually nothing, please contact report@gaogato.com. ");
+                            //CHECK USERNAME DUPLICATION
+                            if (!manager.isUserExistsByUsername(username))
+                            {
+                                //try to register the account first
+                                manager.insertIntoStaffTable(new Staff(email, username, password, legalname, Integer.parseInt(id)), -1);
+                                bash = Randomizer.randomLetterNumber(60, true, "qwertyuiopasdfghjklzxcvbnm".toCharArray());
+                                //bashLink += bash;
+
+                                if (manager.registerBash(Integer.parseInt(id), bash) == 1)
+                                {
+                                    Mailer.sendUserVerificationMail(email, bash);
+                                    message = BSAlerts.successMessage("success", "Please check your email for update! If you found a blank mail, click \"expand trimmed content.\" If there is actually nothing, please contact report@gaogato.com. ");
+                                } else
+                                {
+                                    message = BSAlerts.warningMessage("Warning", "Maybe there is an exception! There is something wrong anyway.");
+                                }
+
+                            } else
+                            {
+                                message = BSAlerts.warningMessage("Username is registered", "Please use another username.");
+                            }
                         } else
                         {
-                            message = BSAlerts.warningMessage("Warning", "Maybe there is an exception! There is something wrong anyway.");
+                            //email duplicated
+                            message = BSAlerts.warningMessage("Email is registered", "Please check your email");
                         }
-
                     } else
                     {
-                        message = BSAlerts.warningMessage("Username is registered", "Please use another username.");
+                        message = BSAlerts.infoMessage("Restricted Register", "Sorry! We only allow staffs to sign up for this system."
+                                + "If you are a village staff, please sign up use your school email!");
                     }
                 } else
                 {
-                    //email duplicated
-                    message = BSAlerts.warningMessage("Email is registered", "Please check your email");
+                    message = BSAlerts.warningMessage("Code expired", " Your verification code is expired. Please try again.");
                 }
             } else
             {
-                message = BSAlerts.infoMessage("Restricted Register", "Sorry! We only allow staffs to sign up for this system."
-                        + "If you are a village staff, please sign up use your school email!");
+                //verifiction code wrong
+                message = BSAlerts.dangerMessage("Verification code wrong", " You have entered wrong verification code. Please try again later.");
             }
             //onnector.getDbConn().close();
         } catch (SQLException ex)
@@ -1263,9 +1279,10 @@ public class ServletPostProcessor implements ServletProcessor
 
     /**
      * User login method,
+     *
      * @throws SQLException
      * @throws IOException
-     * @throws ServletException 
+     * @throws ServletException
      */
     public void processUserhomePOST() throws SQLException, IOException, ServletException
     {
@@ -1392,13 +1409,15 @@ public class ServletPostProcessor implements ServletProcessor
     {
         request.getRequestDispatcher(path + ".jsp").forward(request, response);
     }
-/**
- * default security page.
- * @param request
- * @param response
- * @throws ServletException
- * @throws IOException 
- */
+
+    /**
+     * default security page.
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
