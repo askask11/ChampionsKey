@@ -11,9 +11,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/maincss.css">
+        <script src="js/main.js"></script>
         <title>Manage Students</title>
     </head>
-    <body id="userhome-body">
+    <body id="userhome-body" onload="listenMouseTitle(); helpcount(5, 'This page can help you manage students in the database.');">
         <header>
             <%@include file="/WEB-INF/jspf/navbar.jspf" %>
             <br>
@@ -83,10 +84,10 @@
                 Batch adding <a href='#batchHelp'><img src='images/icons/help.svg' class='icon-16'></a>
             </h4>
             <%--Allow user to add students from file.--%>
-            <form class="form-inline" action='UploadStudentsList' method='POST' target="manageStudents" enctype="multipart/form-data">
-                <input type='file' class='form-control' required name='uploadFile'>
+            <form class="form-inline" action='UploadStudentsList' method='POST' target="manageStudents" enctype="multipart/form-data" >
+                <input type='file' class='form-control' required name='uploadFile' title="Choose a file to upload. click the ? icon if you have any questions.">
 
-                <button class='btn btn-default' type='submit'>Submit</button>
+                <button class='btn btn-default' type='submit' title="Confirm batch adding">Submit</button>
             </form>
             <br>
             <h4>
@@ -97,28 +98,26 @@
             <div class="inline-block" >
                 <form action="ManageStudentsTable" method="GET" target='manageStudents'>
                     <input type="hidden" value="select-all" name="action">
-                    <button class="arrowbutton whiteBg blue" type='submit' ><span>Show All</span></button>
+                    <button class="arrowbutton whiteBg blue" type='submit' title="Show all students in the database."><span>Show All</span></button>
 
                 </form>
-
             </div>
             <div class="inline-block">
                 <form class="form-inline" action="ManageStudentsTable" method="GET" target='manageStudents'>
                     <div class="form-group">
                         <label class="" for="name"> | Or Filter By Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Student's name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Student's name" required title="enter student's name and click 'confirm' to search.">
                         <input type="hidden" value="select-by-name" name="action">
                     </div>
-                    <button type="submit" class="btn btn-default">Confirm</button>
+                    <button type="submit" class="btn btn-default" title='Continue and search students by name.'>Confirm</button>
                 </form>
             </div>
 
             <br>
             <h4>
-                <img src="images/icons/smstar.svg" alt="star"> Student List:
+                <img src="images/icons/smstar.svg" alt="star" title='Students in the database'> Student List:
             </h4>
             <iframe class="manage-students-iframe" name="manageStudents"></iframe>
-
         </section>
 
     </body>

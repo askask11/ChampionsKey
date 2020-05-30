@@ -12,10 +12,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/maincss.css">
+        <script src='js/main.js'></script>
         <title>${username}'s Profile</title>
     </head>
-    <body>
-        <h1 class="center-text">
+    <body onload='listenMouseTitle();'>
+        <h1 class="center-text" title='You may edit your profile information in this popup. Please follow tips below to update your information.'>
             Edit Your Profile
         </h1>
         ${profileMessage}
@@ -39,27 +40,27 @@
                         Username:
                         <input id="usernameField" type="text" name="username" class="form-control" value="${username}">
                     </label>
-                    <button type="submit" class="btn btn-default">Change Username</button>
+                    <button type="submit" class="btn btn-default" title='click to confirm change of your username. '>Change Username</button>
                 </form>
                 <!--Legal Name-->
                 <form class="form-inline" action="UserProfileEmbedded" method="POST">
                     <input type="hidden" name="action" value="update-legalname">
                     <label for="legalnameField">
                         Legal Name:
-                        <input id="legalnameField" type="text" name="legalname" class="form-control" value="${staff.getLegalName()}">
+                        <input id="legalnameField" type="text" name="legalname" class="form-control" value="${staff.getLegalName()}" title='this is your legal name.'>
                     </label>
-                    <button type="submit" class="btn btn-default">Change Name</button>
+                    <button type="submit" class="btn btn-default" title='Click to confirm change of your legal name.'>Change Name</button>
                 </form>
                 <!--Password-->
                 <form class="form-inline" action="UserProfileEmbedded" method="POST">
                     <input type="hidden" name="action" value="update-password">
 
                     Password:
-                    <input name="oldPassword" class="form-control" placeholder="Enter old password" type="password">
-                    <input id="passwordField" type="password" name="password1" class="form-control" placeHolder="New Password...">
-                    <input class="form-control" type="password" name="password2" placeHolder="Enter Again">
+                    <input name="oldPassword" class="form-control" placeholder="Enter old password" type="password" onclick='notify("Please enter your old password here.");'>
+                    <input id="passwordField" type="password" name="password1" class="form-control" placeHolder="New Password..." onclick='notify("Enter your new password.")'>
+                    <input class="form-control" type="password" name="password2" placeHolder="Enter Again" onclick='notify("Please enter your new password again!")'>
 
-                    <button type="submit" class="btn btn-default">Change Password</button>
+                    <button type="submit" class="btn btn-default" title='Click to change your password.'>Change Password</button>
                 </form>
 
             </lover:otherwise>

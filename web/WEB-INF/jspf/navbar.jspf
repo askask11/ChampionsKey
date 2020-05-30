@@ -5,7 +5,7 @@ ${htext}
 ${stext}
 
 <c:set var="servletPath" scope="page" value="${pageContext.request.servletPath}"></c:set>
-
+<script src="js/main.js"></script>
 <nav class="navbar navbar-default nav-lightblue-bg" ${servletPath.equals('/AboutMe.jsp')?"style='margin-bottom: 0px;'":""}>
     <div class="container-fluid">
         <div class="navbar-header">
@@ -16,14 +16,14 @@ ${stext}
                     <img src="images/icons/home32.svg">${(username==null)?"Home":"Dashboard"}</a></li>
             <li ${servletPath.equals("/AboutMe.jsp")?"class='active' ":""}><a href="AboutMe" ><img src="images/icons/rabbit32.svg">About me</a></li>
                     <%--Now need:  manage student, period and study hall creation--%>
-            <li ${servletPath.equals("/WEB-INF/ManageStudents.jsp")?"class='active' ":""} ${(username==null)?"style=\"display:none;\"":""}><a href="ManageStudents"><img src="images/icons/manageStudent32.svg" class="icon-32">Manage Student Database</a></li>
-            <li ${servletPath.equals("/WEB-INF/ManagePeriods.jsp")?"class='active' ":""} ${(username==null)?"style=\"display:none;\"":""}><a href="ManagePeriods"><img src="images/icons/manageHalls.svg" class="icon-32">Manage Periods</a></li>
+            <li ${servletPath.equals("/WEB-INF/ManageStudents.jsp")?"class='active' ":""} ${(username==null)?"style=\"display:none;\"":""} title='Manage the students database'><a href="ManageStudents"><img src="images/icons/manageStudent32.svg" class="icon-32">Manage Student Database</a></li>
+            <li ${servletPath.equals("/WEB-INF/ManagePeriods.jsp")?"class='active' ":""} ${(username==null)?"style=\"display:none;\"":""} title='manage class periods'><a href="ManagePeriods"><img src="images/icons/manageHalls.svg" class="icon-32">Manage Periods</a></li>
             <li><a href="https://gaogato.com/LuckyCanvas">Try LuckyCanvas!</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li ${(username==null)?"":"style='display:none;'"} ><a href="SignUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <c:if test="${staff!=null}"> 
-                <li ><a href="#userSettingPopup"><span class="glyphicon glyphicon-user"></span>Welcome, ${username}</a></li>
+                <li title='Edit your profile setting, click here'><a href="#userSettingPopup"><span class="glyphicon glyphicon-user"></span>Welcome, ${username}</a></li>
                 </c:if>
             <li ${(username==null)?"":"style='display:none;'"} ><a href="index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <li ><a href="LogOut"><span class="${(username==null)?"":"glyphicon glyphicon-log-in"}"></span>${username==null?"Restart":"Log Out"}</a></li>
@@ -36,7 +36,7 @@ ${stext}
         <div class="popup" id="userSettingPopupChild">
             <!--Title here-->
             <h2>Profile Settings</h2>
-            <a class="close" href="#">&times;</a>
+            <a class="close" href="#" onclick='notify("You may edit your profile information here.")'>&times;</a>
             <!--Content here!-->
             <div class="popup-content" >
                 <iframe src="UserProfileEmbedded" frameborder="0" id="user-profile-iframe"></iframe>
@@ -44,3 +44,10 @@ ${stext}
         </div>
     </div>
 </c:if>
+
+<!--Robot including-->
+<%@include file="/WEB-INF/jspf/kawaiibot.jspf" %>
+
+<script>
+    initPio();
+</script>

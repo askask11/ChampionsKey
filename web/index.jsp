@@ -17,10 +17,10 @@
         <%@include file="/WEB-INF/jspf/navbar.jspf" %>
 
             <hgroup>
-                <h1 class='center-text'>
+                <h1 class='center-text' onmouseover="notify('welcome!')">
                     Champion's Key
                 </h1>
-                <h3 class='center-text'>
+                <h3 class='center-text' onmouseover="">
                     Trust us: register efficiently, study efficiently, live efficiently!
                 </h3>
             </hgroup>
@@ -37,7 +37,7 @@
                     </h1>
                     Sign up for study hall now!
                     <form action="SignUp" method="GET">
-                        <button class='btn btn-default'>
+                        <button onmouseover="notify('Welcome to sign up! Our system is currently open to staff only')" class='btn btn-default'>
                             Sign - up!
                         </button>
                     </form>
@@ -49,7 +49,7 @@
                     <div id="forgotPassword" class="overlay">
                         <div class="popup">
                             <!--Title here-->
-                            <h2>Forgot Password</h2>
+                            <h2 onmouseover="notify('You may easily recover your password by using your email!');">Forgot Password</h2>
                             <a class="close" href="#">&times;</a>
                             <!--Content here!-->
                             <div class="popup-content">
@@ -57,7 +57,7 @@
                                 <form class="form-group" action="PasswordRecovery" method="POST">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                        <input type="email" class="form-control" name="email" placeholder="Email">
+                                        <input onmouseover="notify('Please use the staff email. ending with @thevillageschool.com')" type="email" class="form-control" name="email" placeholder="Email">
                                     </div>
                                     <input type="hidden" value="submit" name="action">
                                     <button class='btn btn-default' type='submit'>Confirm</button>
@@ -70,19 +70,21 @@
                             <%--CHANGE HERE LATER ON--%>
                             <label for="email"><img src="images/icons/smmail.svg" class="icon-16 margin-bottom-9" alt="email">Email address:</label>
                             <input type="email" class="form-control" id="email-field" name='email' >
-                            <a href="#forgotPassword">Forgot Password?</a>
+                            <a href="#forgotPassword" onmouseover="notify('You may easily recover your password by using your email!');">Forgot Password?</a>
                         </div>
                         <div class="form-group">
                             <!--Password field-->
                             <label for="password"><img src="images/icons/smkeyheart.svg" class="icon-16 margin-bottom-9" alt="password">Password:</label>
-                            <input type="password" class="form-control" id="password-field" name='password' >
+                            <input onmouseover="notify('This is the secret shared between us!');"  type="password" class="form-control" id="password-field" name='password' >
                         </div>
                         <!--  -->
                         
-                        <button type="submit" class="btn btn-default blue"><span class="glyphicon glyphicon-ok green"></span>Submit</button>
+                        <button type="submit" class="btn btn-default blue" onmouseover="notify('Click to log in!'); "><span class="glyphicon glyphicon-ok green"></span>Submit</button>
                     </form>
                 </div>
             </div>
         </div>
+                            
+                            
     </body>
 </html>

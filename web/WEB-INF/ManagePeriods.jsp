@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/maincss.css">
         <title>Manage Periods</title>
     </head>
-    <body id="userhome-body">
+    <body id="userhome-body" onload='helpcount(5, "You may edit students list in each period here."); listenMouseTitle(); '>
         <header>
             <%@include file="/WEB-INF/jspf/navbar.jspf" %>
             <br>
@@ -28,18 +28,18 @@
 
             ${managePeriodsMessage}
             <h4>
-                <img src="images/icons/smheart.svg" alt="smheart"> Select Period 
+                <img src="images/icons/smheart.svg" alt="smheart" title='choose a period'> Select Period 
             </h4>
             <br>
             <!--User select existing periods-->
             <form action="ManagePeriods" method="GET" class="form-inline">
 
-                <select class="form-control" name="period-id">
+                <select class="form-control" name="period-id" title='Select a period you want to edit.'>
                     <c:forEach var="period" items="${periods}">
                         <option value="<c:out value="${period[0]}"></c:out>"><c:out value="${period[1]}"></c:out></option>
                     </c:forEach>
                 </select> 
-                <button type='submit' class='arrowbutton whiteBg blue'><span>Submit</span></button>
+                <button type='submit' class='arrowbutton whiteBg blue'  title='click to show student list.'><span>Submit</span></button>
             </form>
             <br>
             <div ${tableCss.getAttributeStyle()}>
@@ -49,13 +49,13 @@
                 
                 <!--New student to be registered in this period.-->
                 <form class="form-inline" action="ManagePeriods" method="POST">
-                    <select class="form-control" name="id">
+                    <select class="form-control" name="id" title='You may select students that are currently in our database but is not enrolled in this period yet.'>
                         <c:forEach var="student" items="${DatabaseMain.manageStudyHall().selectStudentFilterOutByPeriodId(periodID)}">
                             <option value="${student.getId()}">${student.getId()}, ${student.getName()}, G${student.getGrade()}</option>
                         </c:forEach>
                     </select>
                     <input type="hidden" name="action" value="insert">
-                    <button class="btn btn-default" type="submit">Submit</button>
+                    <button class="btn btn-default" type="submit" title='click to submit'>Submit</button>
                 </form>
                 
 
@@ -104,7 +104,7 @@
                                     <form action="ManagePeriods" method="POST">
                                         <input type="hidden" value="delete" name="action">
                                         <input type="hidden" value="<c:out value="${student.getId()}"></c:out>" name="id">             
-                                        <button type="submit" class="transparentButton"><img src="images/icons/deletepeople32.svg" alt="X"></button>
+                                        <button type="submit" class="transparentButton" title='delete this student from the list.'><img src="images/icons/deletepeople32.svg" alt="X"></button>
                                     </form>
                                 </td>
                             </tr>
