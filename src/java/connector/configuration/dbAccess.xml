@@ -8,7 +8,7 @@ Description Of This Class:This is a configuration file to direct the server to a
 <dbAccess>
     <!--IP:PORT-->
     <address>
-        74.208.31.251:3306
+        8.210.71.237:3306
     </address>
     <!--The name of the database.-->
     <dbName>
@@ -20,7 +20,7 @@ Description Of This Class:This is a configuration file to direct the server to a
     </username>
     <!--Password to access the database.-->
     <password>
-        45465445AA
+        45465445_AA
     </password>
     <!--If the connection uses ssl.-->
     <useSSL>
