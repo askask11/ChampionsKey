@@ -1079,6 +1079,7 @@ public class ServletPostProcessor implements ServletProcessor
                     }
                 }
 
+                //END OF FILE UPLOADING
                 rows = studentManagement.insertStudentsInBatch(storeFile);
 
                 for (int i = 0; i < rows.length; i++)

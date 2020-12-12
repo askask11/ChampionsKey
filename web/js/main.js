@@ -55,7 +55,12 @@ function randomMember(arr) {
     return arr[Math.floor(Math.random() * arr.length + 1) - 1];
 }
 
-
+/**
+ * This makes the Pio girl to speak. It will find the parent pio to speak. You may assign array here.
+ * You can also write html for message.
+ * @param {type} msg
+ * @returns {undefined}
+ */
 function notify(msg)
 {
     //var activeNotified = window.localStorage.getItem('activeNotified');
@@ -95,7 +100,10 @@ function notify(msg)
 
 
 }
-
+/**
+ * This function Pio girl to speak up each time when the mouse of the user hovers over an element contains title.
+ * @returns {undefined}
+ */
 function listenMouseTitle()
 {
     window.addEventListener('mouseover', function (event) {
