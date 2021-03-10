@@ -171,8 +171,8 @@ public class Mailer
     {
         try
         {
-            //sendDefaultMail("932646988@qq.com", "miao", "this is a miao mail.");
-            sendUserVerificationMail("jianqing_gao@s.thevillageschool.com", "helloiamfake");
+            
+            sendUserVerificationMail("vip@jianqinggao.com", "helloiamfake");
         } catch (MessagingException | IOException ex)
         {
             Logger.getLogger(Mailer.class.getName()).log(Level.SEVERE, null, ex);
