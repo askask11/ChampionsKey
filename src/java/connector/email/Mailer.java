@@ -4,6 +4,7 @@
  */
 package connector.email;
 
+import cn.hutool.setting.Setting;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Properties;
@@ -116,8 +117,13 @@ public class Mailer
      */
     public static void sendDefaultMail(String recipient, String subject, String content) throws MessagingException
     {
-        sendEmail("smtp.ionos.com", "587", "noreply@villagechemcats.com", "&fkK6tAK98g}@FBb", recipient, subject, content);
- 
+        Setting setting = new Setting("mail.setting");
+        String host, port, sender, pass;
+        host = setting.get("host");
+        port = setting.get("port");
+        sender = setting.get("user");
+        pass = setting.get("pass");
+        sendEmail(host, port, sender, pass, recipient, subject, content);
     }
 
     public static void sendUserVerificationMail(String recepient, String verifyBash) throws IOException, MessagingException
