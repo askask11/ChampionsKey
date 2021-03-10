@@ -117,7 +117,7 @@ public class Mailer
     public static void sendDefaultMail(String recipient, String subject, String content) throws MessagingException
     {
         sendEmail("smtp.ionos.com", "587", "noreply@villagechemcats.com", "&fkK6tAK98g}@FBb", recipient, subject, content);
-        //sendEmail(/*"mail.villagechemcats.com"*/"smtp.gmail.com", "465",/*"26"*/, /*"xeduoover18@gmail.com", "iifcpofrcjtgugop"*/,"johnson@villagechemcats.com","3266933", recipient, subject, content);
+ 
     }
 
     public static void sendUserVerificationMail(String recepient, String verifyBash) throws IOException, MessagingException
